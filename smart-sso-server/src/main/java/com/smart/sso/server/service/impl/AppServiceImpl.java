@@ -18,6 +18,7 @@ public class AppServiceImpl implements AppService {
 		appList = new ArrayList<>();
 		appList.add(new App("服务端1", "server1", "123456"));
 		appList.add(new App("客户端1", "demo1", "123456"));
+		appList.add(new App("客户端2", "demo2", "123456"));
 	}
 
 	@Override
