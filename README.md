@@ -1,4 +1,11 @@
 # smart-sso
+注意：nginx.config对应以下域名环境
+127.0.0.1 server.sso.com
+127.0.0.1 client1.sso.com
+127.0.0.1 client2.sso.com
+127.0.0.1 portal.sso.com
+
+# smart-sso
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/a466350665/smart-sso/pulls)
 [![GitHub stars](https://img.shields.io/github/stars/a466350665/smart-sso.svg?style=social&label=Stars)](https://github.com/a466350665/smart-sso)
@@ -28,8 +35,8 @@ smart-sso
 ## 单点登录原理
 ![smart_sso_login.jpg](smart_sso_login.jpg)
 #### 注意点：
-1. 图中第4步生成的cookie（TGC）的domain是server.smart-sso.com,此时只有浏览器访问server.smart-sso.com才会带着TGC过去，即访问demo.smart-sso.com等TGC是不会带过去的，此时在server.smart-sso.com单点登录后，然后直接打开demo.smart-sso.com，此时怎样才能做到直接登录的状态呢？
-关键点在于重定向，即访问demo.smart-sso.com时，此时重定向到server.smart-sso.com，所以浏览器自然会带着TGC到server.smart-sso.com服务端啦，然后在server.smart-sso.com服务端判断TGC相关逻辑，如果已经登录，那么产生一个授权code，授权code作为查询参数再重定向到demo.smart-sso.com，然后demo.smart-sso.com再根据code去server.smart-sso.com验证即可（之后步骤笔记未完待续）。
+1. 图中第4步生成的cookie（TGC）的domain是server.sso.com,此时只有浏览器访问server.sso.com才会带着TGC过去，即访问demo.smart-sso.com等TGC是不会带过去的，此时在server.sso.com单点登录后，然后直接打开demo.smart-sso.com，此时怎样才能做到直接登录的状态呢？
+关键点在于重定向，即访问demo.smart-sso.com时，此时重定向到server.sso.com，所以浏览器自然会带着TGC到server.sso.com服务端啦，然后在server.sso.com服务端判断TGC相关逻辑，如果已经登录，那么产生一个授权code，授权code作为查询参数再重定向到demo.smart-sso.com，然后demo.smart-sso.com再根据code去server.sso.com验证即可（之后步骤笔记未完待续）。
 
 ## 单点退出原理
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20201118165835197.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2E0NjYzNTA2NjU=,size_16,color_FFFFFF,t_70#pic_center)
